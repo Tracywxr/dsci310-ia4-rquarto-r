@@ -7,12 +7,15 @@ format:
     toc-depth: 2  
     toc-title: "Table of Contents"
     html-math-method: katex 
-bibliography: references.bib  
+    toc-location: left
+    embed-resources: true
 editor: source
+bibliography: references.bib 
 ---
 
 ```{r}
 #| echo: false 
+#| warning: false
 library(tidyverse)
 ```
 
@@ -39,7 +42,7 @@ knitr [@knitr], tidyverse [@tidyverse], and Quarto [@Allaire_Quarto_2022]
 
 ![Horse populations for all provinces in Canada from 1906 - 1972.](../results/horse_pops_plot.png){#fig-horse-pop width=80%}
 
-We can see from Figure 1 that Ontario, Saskatchewan and Alberta 
+We can see from @fig-horse-pop that Ontario, Saskatchewan and Alberta 
 have had the highest horse populations in Canada. 
 All provinces have had a decline in horse populations since 1940. 
 This is likely due to the rebound of the Canadian automotive industry 
@@ -56,6 +59,7 @@ We present the standard deviations in @tbl-horse-sd.
 #| label: tbl-horse-sd
 #| tbl-cap: "Standard deviation of historical (1906-1972) horse populations for each Canadian province."
 #| echo: false 
+#| warning: false
 
 horses_sd_table <- read_csv("../results/horses_sd.csv")
 largest_sd <- horses_sd_table$Province[1]
